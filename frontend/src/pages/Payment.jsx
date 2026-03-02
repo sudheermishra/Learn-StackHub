@@ -60,6 +60,7 @@ export async function paymentLoader({ request, params }) {
   };
   return await createPaymentIntent();
 }
+
 function Payment() {
   const { error, clientSecret } = useLoaderData();
   const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
@@ -67,16 +68,70 @@ function Payment() {
   if (error) {
     return <h1>{error}</h1>;
   }
+
   return (
-    <>
-      <h1>React Stripe and the Payment Element</h1>
+    <div
+      style={{
+        maxWidth: "520px",
+        margin: "4rem auto",
+        padding: "0 1rem",
+      }}>
+      <p
+        style={{
+          color: "var(--text-muted)",
+          fontSize: "0.78rem",
+          fontWeight: "600",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          marginBottom: "0.5rem",
+        }}>
+        Secure Checkout
+      </p>
+      <h1
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: "1.9rem",
+          fontWeight: "800",
+          marginBottom: "0.4rem",
+          letterSpacing: "-0.02em",
+        }}>
+        Complete your purchase
+      </h1>
+      <p
+        style={{
+          color: "var(--text-muted)",
+          fontSize: "0.92rem",
+          marginBottom: "2.5rem",
+        }}>
+        You'll get instant access after payment
+      </p>
+
       {clientSecret && stripePromise && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
           <CheckoutForm />
         </Elements>
       )}
-    </>
+    </div>
   );
 }
+
+// function Payment() {
+//   const { error, clientSecret } = useLoaderData();
+//   const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
+
+//   if (error) {
+//     return <h1>{error}</h1>;
+//   }
+//   return (
+//     <>
+//       <h1>React Stripe and the Payment Element</h1>
+//       {clientSecret && stripePromise && (
+//         <Elements stripe={stripePromise} options={{ clientSecret }}>
+//           <CheckoutForm />
+//         </Elements>
+//       )}
+//     </>
+//   );
+// }
 
 export default Payment;
