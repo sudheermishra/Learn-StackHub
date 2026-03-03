@@ -13,8 +13,6 @@ export default function CheckoutForm() {
     e.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
@@ -36,19 +34,6 @@ export default function CheckoutForm() {
 
     setIsProcessing(false);
   };
-
-  // return (
-  //   <form id="payment-form" onSubmit={handleSubmit}>
-  //     <PaymentElement id="payment-element" />
-  //     <button disabled={isProcessing || !stripe || !elements} id="submit">
-  //       <span id="button-text">
-  //         {isProcessing ? "Processing ... " : "Pay now"}
-  //       </span>
-  //     </button>
-  //     {/* Show any error or success messages */}
-  //     {message && <div id="payment-message">{message}</div>}
-  //   </form>
-  // );
 
   return (
     <form

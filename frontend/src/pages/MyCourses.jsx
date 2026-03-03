@@ -67,16 +67,6 @@ function MyCourses() {
         })}
       </div>
     </div>
-
-    // <div>
-    //   {myCourses.map((course) => {
-    //     return (
-    //       <Link key={course.id} to={course.id.toString()}>
-    //         {course.name} <br></br>
-    //       </Link>
-    //     );
-    //   })}
-    // </div>
   );
 }
 

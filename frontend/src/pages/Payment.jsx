@@ -1,17 +1,3 @@
-// import { Elements } from "@stripe/react-stripe-js";
-// import CheckoutForm from "./CheckoutForm";
-// import { loadStripe } from "@stripe/stripe-js";
-// import { getUser } from "../utils/getUser";
-// import {
-//   BASE_URL,
-//   STRIPE_PUBLISHABLE_KEY,
-//   SUPABASE_API_KEY,
-// } from "../constants";
-// import { useLoaderData } from "react-router-dom";
-// import { requireAuth } from "../utils/requireAuth";
-// import { isTokenExpired } from "../utils/isTokenExpired";
-// import axios from "axios";
-
 import { loadStripe } from "@stripe/stripe-js";
 import {
   BASE_URL,
@@ -114,24 +100,5 @@ function Payment() {
     </div>
   );
 }
-
-// function Payment() {
-//   const { error, clientSecret } = useLoaderData();
-//   const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
-
-//   if (error) {
-//     return <h1>{error}</h1>;
-//   }
-//   return (
-//     <>
-//       <h1>React Stripe and the Payment Element</h1>
-//       {clientSecret && stripePromise && (
-//         <Elements stripe={stripePromise} options={{ clientSecret }}>
-//           <CheckoutForm />
-//         </Elements>
-//       )}
-//     </>
-//   );
-// }
 
 export default Payment;
